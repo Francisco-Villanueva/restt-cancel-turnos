@@ -11,6 +11,7 @@ export function DeleteTurno({ turnoId }: { turnoId: string }) {
   const [turnoData, setTurnoData] = useState<ITurno | null>(defaultTurno);
   const [barber, setBarber] = useState<IBarber>(defaultBarber);
   const rounter = useRouter();
+
   useEffect(() => {
     AppointmentServices.getTurnoById(turnoId).then((res: { data: ITurno }) => {
       setTurnoData(res.data);
