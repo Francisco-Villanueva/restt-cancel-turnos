@@ -7,15 +7,15 @@ import { ITurno, defaultTurno } from "@/types/turno";
 import { AppointmentServices } from "@/services/appointment.services";
 import { BarberServices } from "@/services/barber.services";
 import { IBarber, defaultBarber } from "@/types/barber";
+import { message } from "antd";
 export function DeleteTurno({ turnoId }: { turnoId: string }) {
   const [turnoData, setTurnoData] = useState<ITurno | null>(defaultTurno);
   const [barber, setBarber] = useState<IBarber>(defaultBarber);
-  const rounter = useRouter();
+  const router = useRouter();
 
   useEffect(() => {
     AppointmentServices.getTurnoById(turnoId).then((res: { data: ITurno }) => {
       setTurnoData(res.data);
-      console.log(res.data);
       if (res.data) {
         BarberServices.getBarberById(res.data.barberId).then(
           (res: { data: IBarber }) => {
@@ -29,7 +29,8 @@ export function DeleteTurno({ turnoId }: { turnoId: string }) {
   const handleDelete = () => {
     AppointmentServices.delete(turnoId).then(() => {
       setTimeout(() => {
-        alert("deleted");
+        message.warning("Turno eliminado");
+        router.push(`/confirmation/${turnoData?.name}`);
       }, 1000);
     });
   };
@@ -73,6 +74,8 @@ export function DeleteTurno({ turnoId }: { turnoId: string }) {
             Canelar turno
           </button>
         </div>
+      ) : turnoData === null ? (
+        "Not Found!"
       ) : (
         <Loader />
       )}

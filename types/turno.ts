@@ -10,10 +10,10 @@ export interface ITurno {
 
 export const defaultTurno = {
   id: "",
-  name: "",
+  name: "cliente",
   phone: "",
-  time: "",
+  time: "16:00",
   email: "",
-  date: "",
+  date: " 2023-12-19",
   barberId: 0,
 };

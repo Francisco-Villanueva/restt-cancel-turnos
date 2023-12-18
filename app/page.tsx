@@ -7,7 +7,6 @@ export default function Home() {
       <Image
         src="/images/RESET_C_negro.png"
         alt="reset logo"
-        objectFit="contain"
         height={40}
         width={300}
         priority={true}
