@@ -37,16 +37,16 @@ export function DeleteTurno({ turnoId }: { turnoId: string }) {
   return (
     <div className="grid place-items-center  h-[100vh] w-full">
       {turnoData?.id ? (
-        <div className="flex flex-col gap-4 max-md:w-[95%] w-[50%] h-[50%] max-md:h-[40%] border rounded-md p-4 justify-around relative">
+        <div className="flex flex-col gap-4 max-xl:w-[95%] w-[50%] h-[50%] max-md:h-[40%] border rounded-md p-4 justify-around relative">
           <div className="flex items-center gap-4">
             <Image
               src={"/images/RESET_C_negro.png"}
               alt="Logo"
-              width={50}
-              className="max-sm:w-full "
+              width={70}
+              // className="max-sm:w-full "
               height={10}
             />
-            <h2 className="text-3xl max-md:text-2xl">
+            <h2 className="text-3xl max-xl:text-xl">
               Cancelacion de turno | RESET - Hair Studio
             </h2>
           </div>
